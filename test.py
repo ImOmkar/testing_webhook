@@ -3,14 +3,9 @@ import requests
 
 app = Flask(__name__)
 
-# # Replace with your personal access token
-# GITHUB_API_URL = "https://api.github.com"
-# GITHUB_TOKEN = "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"
-
-
-
 @app.route('/', methods=['GET'])
 def receiver():
+    print(request)
     return render_template('receiver.html')
 
 # home route
