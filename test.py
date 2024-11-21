@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def receiver():
-    print(request)
+    print("This is request: ", request)
     return render_template('receiver.html')
 
 # home route
