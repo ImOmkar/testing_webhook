@@ -3,10 +3,13 @@ import requests
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
-def receiver():
-    print("This is request: ", request)
-    return render_template('receiver.html')
+@app.route('/webhook', methods=['POST'])
+def webhook():
+    if request.method == 'POST':
+        payload = request.json  # GitHub sends JSON data
+        print(f"Received payload: {payload}")  # Debug: Print to console or log it
+        return jsonify({"status": "success"}), 200
+    return jsonify({"error": "Invalid method"}), 405
 
 # home route
 # @app.route('/', methods=['POST', 'GET'])
