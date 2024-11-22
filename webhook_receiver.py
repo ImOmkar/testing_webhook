@@ -1,13 +1,14 @@
 from flask import Flask, jsonify, request, render_template, url_for, redirect   
-import requests
+import requests, json
 
 app = Flask(__name__)
 
 @app.route('/webhook', methods=['POST', 'GET'])
 def webhook():
     if request.method == 'POST':
-        payload = request.json  # GitHub sends JSON data
-        print(f"Received payload: {payload}")  # Debug: Print to console or log it
+        payload = request.json  
+        json_string = json.dumps(payload)
+        print(f"Received payload: {json_string}")  
         return jsonify(payload), 200
     return jsonify({"error": "Invalid method"}), 405
 
