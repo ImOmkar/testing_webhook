@@ -3,7 +3,7 @@ import requests
 
 app = Flask(__name__)
 
-@app.route('/webhook', methods=['POST'])
+@app.route('/webhook', methods=['POST', 'GET'])
 def webhook():
     if request.method == 'POST':
         payload = request.json  # GitHub sends JSON data
