@@ -8,7 +8,7 @@ def webhook():
     if request.method == 'POST':
         payload = request.json  
         json_string = json.dumps(payload)
-        print(f"Received payload: {json_string}")  
+        print(f"Received payload is here: {json_string}")  
         return jsonify(payload), 200
     return jsonify({"error": "Invalid method"}), 405
 
