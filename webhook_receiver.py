@@ -6,6 +6,7 @@ app = Flask(__name__)
 @app.route('/webhook', methods=['POST', 'GET'])
 def webhook():
     if request.method == 'POST':
+        print(request.method)
         payload = request.json  
         json_string = json.dumps(payload)
         print(f"Received payload is here...: \n {json_string}")  
