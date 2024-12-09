@@ -10,7 +10,7 @@ def webhook():
         json_string = json.dumps(payload)
         print(f"Received payload is here...: \n {json_string}")  
         return jsonify(payload), 200
-    return jsonify({"error": "Invalid method"}), 405
+    return jsonify({"error": "Invalid method..."}), 405
 
 # home route
 # @app.route('/', methods=['POST', 'GET'])
